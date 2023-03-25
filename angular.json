@@ -69,7 +69,8 @@
               "browserTarget": "pcrnews:build:production"
             },
             "development": {
-              "browserTarget": "pcrnews:build:development"
+              "browserTarget": "pcrnews:build:development",
+              "port": 4300
             }
           },
           "defaultConfiguration": "development"

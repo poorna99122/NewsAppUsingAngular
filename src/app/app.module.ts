@@ -8,11 +8,13 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatIconModule} from '@angular/material/icon';
+import { FixedHeaderComponent } from './fixed-header/fixed-header.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FixedHeaderComponent
   ],
   imports: [
     BrowserModule,
