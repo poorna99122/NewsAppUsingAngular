@@ -1,20 +1,31 @@
-import { AfterViewInit, Component, ViewChild,ChangeDetectorRef } from '@angular/core';
+import { AfterViewInit, Component, ViewChild,ChangeDetectorRef, OnInit } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { ChangeDetectionStrategy } from '@angular/compiler';
+import { NewsService } from './service/news.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements AfterViewInit{
+export class AppComponent implements AfterViewInit, OnInit{
   title = 'pcrnews';
   isSideNavVisible : boolean = false; 
+  public sources : any = [];
+  public articles : any = [];
   @ViewChild(MatSidenav) sideNav!: MatSidenav;
 
-  constructor(private observer : BreakpointObserver, private cdr : ChangeDetectorRef){
-
+  constructor(
+    private observer : BreakpointObserver, 
+    private cdr : ChangeDetectorRef, 
+    private newsApi: NewsService){
+  }
+  ngOnInit(): void {
+    this.newsApi.initArticles().subscribe((res : any)=>{
+      console.log(res);
+      this.articles = res.articles;
+    })
   }
   ngAfterViewInit(): void {
     this.sideNav.opened = true;
