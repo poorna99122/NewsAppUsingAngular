@@ -1,0 +1,15 @@
+p {
+    margin: 0px;
+}
+
+
+
+
+.mat-drawer-container {
+    position: relative;
+    z-index: 1;
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
+    display: unset;
+    overflow: hidden;
+}

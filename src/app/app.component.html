@@ -1,24 +1,31 @@
 <p>
   <mat-toolbar color="primary">
     <button mat-icon-button class="example-icon">
-      <mat-icon class="mat-18">menu</mat-icon>
-      <mat-icon class="mat-18">close</mat-icon>
+      <ng-container *ngIf="isSideNavVisible">
+        <mat-icon class="mat-18" (click)="sideNavOpen()" >menu</mat-icon>
+      </ng-container>
+
+      <ng-container *ngIf="!isSideNavVisible">
+        <mat-icon class="mat-18" (click)="sideNavClose()">close</mat-icon>
+      </ng-container>
     </button>
     <span>My Application</span>
   </mat-toolbar>
 </p> 
 
-<mat-sidenav-container>
-  <mat-sidenav #sideNav = "matSidenav">
-    <img src="" alt="" class="avatar mat-elevation-z8">
-    <h4>PcrNews</h4>
-    <mat-divider></mat-divider>
-    <button mat-button class="menu-button">
-      <mat-icon>event_note</mat-icon>
-      <span>ABC News</span>
-    </button>
-  </mat-sidenav>
-</mat-sidenav-container> 
 
-<router-outlet></router-outlet>
+
+
+<mat-sidenav-container>
+    <mat-sidenav>
+      <img src="" alt="" class="avatar mat-elevation-z8">
+      <h4>Let's Program</h4>
+      <mat-divider></mat-divider>
+    </mat-sidenav>
+</mat-sidenav-container>
+
+
+
+
+<!-- <router-outlet></router-outlet> -->
 
